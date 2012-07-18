@@ -54,3 +54,9 @@ set statusline=%<%f\ %h%m%r%h%w%y\ %{fugitive#statusline()}\ %=\ col:%c%V\ ascii
 " Snipmate
 autocmd FileType python set ft=python.django
 autocmd FileType html set ft=htmldjango.html
+
+" pyflakes
+let g:pyflakes_use_quickfix = 0
+
+" nerdtee
+let NERDTreeIgnore = ['\.pyc$']
