@@ -27,7 +27,11 @@ set t_Co=256
 set background=dark
 colorscheme zenburn
 let g:zenburn_force_dark_Background=1
-set guifont=Inconsolata:h16
+if has('gui_macvim')
+	set guifont=Inconsolata:h16
+else
+	set guifont=Inconsolata\ 13
+endif
 
 " fuzzyfinder shorcuts
 map FF :FufCoverageFile<CR>
