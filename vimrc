@@ -12,6 +12,7 @@ filetype plugin indent on
 syntax on
 
 " indention
+set expandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -48,12 +49,14 @@ set ignorecase
 set smartcase
 
 set wildmode=list:longest
+set wildignore=*.pyc
+
 
 " " hide macvim toolbar
 set guioptions-=T
 
 " show git branch
-set statusline=%<%f\ %h%m%r%h%w%y\ %{fugitive#statusline()}\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l,%L\ %P
+set statusline=%<%f\ %{fugitive#statusline()}\ %=\ col:%c%V\ ascii:%b\ pos:%o\ lin:%l,%L\ %P
 
 " Snipmate
 autocmd FileType python set ft=python.django
@@ -64,3 +67,16 @@ let g:pyflakes_use_quickfix = 0
 
 " nerdtee
 let NERDTreeIgnore = ['\.pyc$']
+
+" disable arrowkeys
+map <left> <nop>
+map <up> <nop>
+map <down> <nop>
+map <right> <nop>
+
+set hidden
+
+map <Leader>ff :FufCoverageFile<CR>
+map <Leader>fb :FufBuffer<CR>
+map <Leader>fF :FufFile<CR>
+let g:fuf_maxMenuWidth = 150
