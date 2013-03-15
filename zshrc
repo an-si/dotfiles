@@ -30,16 +30,20 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git-flow django gnu-utils brew osx pip python vi-mode virtualenvwrapper)
+plugins=(git-flow django gnu-utils brew pip python vi-mode virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
 # Customize to your needs...
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # prevent reloading of the history in each shell
 unsetopt share_history
 
 # show cpu usage stats for programs running for more than 10 seconds
 REPORTTIME=10
+
+# Setting for the new UTF-8 terminal support in Lion
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
