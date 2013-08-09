@@ -75,3 +75,7 @@ alias ll='gls $LS_OPTIONS -l'
 alias la='gls $LS_OPTIONS -lA'
 alias sl=ls # often screw this up
 
+# git alias
+alias gco='git checkout'
+alias greb='git rebase'
+
