@@ -1,3 +1,7 @@
+# # Determine OS
+uname=$(/usr/bin/uname -s)
+export OSNAME=${uname%_*}
+
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -55,27 +59,32 @@ alias clean="echo 'Removing .pyc files...' && find .  -name '*.pyc' -exec rm {} 
 alias mm="cd ~/src/momox/src/momox/"
 
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.6"
+export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
 source /usr/local/bin/virtualenvwrapper.sh
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 
-# solarized dircolors
 export LS_OPTIONS='--color=auto'
-eval $(gdircolors ~/.dircolors)
+
+if [[ $OSNAME == "Darwin" ]]; then
+    export LS='gls'
+    eval $(gdircolors ~/.dircolors)
+elif [[ $OSNAME == "Linux" ]]; then
+    export LS='ls'
+    eval $(dircolors ~/.dircolors)
+fi 
 
 # Disable hostname completion
 zstyle ':completion:*' hosts off
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # List direcory contents
-alias ls='gls $LS_OPTIONS'
-alias lsa='gls $LS_OPTIONS -lah'
-alias l='gls $LS_OPTIONS -la'
-alias ll='gls $LS_OPTIONS -l'
-alias la='gls $LS_OPTIONS -lA'
+alias ls='$LS $LS_OPTIONS'
+alias lsa='$LS $LS_OPTIONS -lah'
+alias l='$LS $LS_OPTIONS -la'
+alias ll='$LS $LS_OPTIONS -l'
+alias la='$LS $LS_OPTIONS -lA'
 alias sl=ls # often screw this up
 
 # git alias
 alias gco='git checkout'
 alias greb='git rebase'
-
