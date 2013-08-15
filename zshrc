@@ -61,7 +61,7 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 
 # solarized dircolors
 export LS_OPTIONS='--color=auto'
-eval $(gdircolors ~/dotfiles/dircolors)
+eval $(gdircolors ~/.dircolors)
 
 # Disable hostname completion
 zstyle ':completion:*' hosts off
