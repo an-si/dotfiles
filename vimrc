@@ -26,7 +26,7 @@ set cursorcolumn
 " visual
 set t_Co=256
 set background=dark
-colorscheme zenburn
+colorscheme solarized
 let g:zenburn_force_dark_Background=1
 if has('gui_macvim')
 	set guifont=Inconsolata:h16
