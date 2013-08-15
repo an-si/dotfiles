@@ -1,5 +1,5 @@
 # # Determine OS
-uname=$(/usr/bin/uname -s)
+uname=$(uname -s)
 export OSNAME=${uname%_*}
 
 # Path to your oh-my-zsh configuration.
