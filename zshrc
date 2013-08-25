@@ -56,7 +56,7 @@ export LC_ALL=en_US.UTF-8
 
 # my settings
 alias clean="echo 'Removing .pyc files...' && find .  -name '*.pyc' -exec rm {} \; -exec echo -n . \; && echo ''"
-alias mm="cd ~/src/momox/src/momox/"
+alias mm="cd ~/src/momox/src/"
 
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
@@ -88,3 +88,5 @@ alias sl=ls # often screw this up
 # git alias
 alias gco='git checkout'
 alias greb='git rebase'
+alias gssave='git stash save'
+alias gsp='git stash pop'
