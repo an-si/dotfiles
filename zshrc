@@ -59,8 +59,14 @@ alias clean="echo 'Removing .pyc files...' && find .  -name '*.pyc' -exec rm {} 
 alias mm="cd ~/src/momox/src/"
 
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
-source /usr/local/bin/virtualenvwrapper.sh
+
+#if [[ $OSNAME == "Darwin" ]]; then
+#    export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
+#elif [[ $OSNAME == "Linux" ]]; then
+#    export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
+#fi
+
+#source /usr/local/bin/virtualenvwrapper.sh
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 
 export LS_OPTIONS='--color=auto'
@@ -71,7 +77,7 @@ if [[ $OSNAME == "Darwin" ]]; then
 elif [[ $OSNAME == "Linux" ]]; then
     export LS='ls'
     eval $(dircolors ~/.dircolors)
-fi 
+fi
 
 # Disable hostname completion
 zstyle ':completion:*' hosts off
