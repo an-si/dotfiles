@@ -16,7 +16,6 @@ DEFAULT_USER='ansi'
 
 # Example aliases
 alias zshconfig="vi ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -33,10 +32,12 @@ alias zshconfig="vi ~/.zshrc"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/pyenv/shims/python
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow django gnu-utils sublime brew pip python vi-mode virtualenvwrapper zsh-syntax-highlighting)
+plugins=(git git-flow django gnu-utils sublime brew pip python vi-mode virtualenvwrapper zsh-syntax-highlighting fabric extract)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -57,16 +58,9 @@ export LC_ALL=en_US.UTF-8
 # my settings
 alias clean="echo 'Removing .pyc files...' && find .  -name '*.pyc' -exec rm {} \; -exec echo -n . \; && echo ''"
 alias mm="cd ~/src/momox/src/"
+alias mmx="cd ~/src/mmx/src/"
 
 export WORKON_HOME=$HOME/.virtualenvs
-
-#if [[ $OSNAME == "Darwin" ]]; then
-#    export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python"
-#elif [[ $OSNAME == "Linux" ]]; then
-#    export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
-#fi
-
-#source /usr/local/bin/virtualenvwrapper.sh
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 
 export LS_OPTIONS='--color=auto'
@@ -96,3 +90,8 @@ alias gco='git checkout'
 alias greb='git rebase'
 alias gssave='git stash save'
 alias gsp='git stash pop'
+
+# pyenv
+export PYENV_ROOT=/usr/local/opt/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
