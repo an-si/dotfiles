@@ -32,7 +32,7 @@ alias zshconfig="vi ~/.zshrc"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/pyenv/shims/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -92,6 +92,6 @@ alias gssave='git stash save'
 alias gsp='git stash pop'
 
 # pyenv
-export PYENV_ROOT=/usr/local/opt/pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+#export PYENV_ROOT=/usr/local/opt/pyenv
+#if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
