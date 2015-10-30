@@ -8,6 +8,7 @@ export LC_ALL=en_US.UTF-8
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
 # only for agnoster theme
 DEFAULT_USER='ansi'
@@ -29,6 +30,7 @@ antigen bundle fabric
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle joel-porquet/zsh-dircolors-solarized.git
+antigen bundle rimraf/k
 
 # Load the theme.
 #antigen theme agnoster
