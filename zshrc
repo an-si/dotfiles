@@ -5,6 +5,7 @@ alias dircolors="gdircolors"
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
@@ -39,10 +40,19 @@ antigen theme bureau
 # package settings
 setupsolarized dircolors.ansi-dark
 
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
 # bind UP and DOWN arrow keys (compatibility fallback
 # for Ubuntu 12.04, Fedora 21, and MacOSX 10.9 users)
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
 
 # bind k and j for VI mode
 bindkey -M vicmd 'k' history-substring-search-up
@@ -70,3 +80,6 @@ alias clean="echo 'Removing .pyc files...' && find .  -name '*.pyc' -exec rm {} 
 alias mm="cd ~/src/momox/src/"
 alias mmx="cd ~/src/mmx/src/"
 
+
+export NVM_DIR="/Users/ansi/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
