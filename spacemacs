@@ -255,27 +255,32 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (global-linum-mode)
+  (spacemacs/toggle-indent-guide-globally-on)
   (editorconfig-mode 1)
 
   ;; max line length
   (set-fill-column 100)
   (setq fci-rule-column 100)
+  ;; Workaround to force fci-mode on globally.
+  (define-globalized-minor-mode global-fci-mode fci-mode
+    (lambda () (fci-mode 1)))
+  (global-fci-mode 1)
 
   ;; ignored dirs
   (setq projectile-globally-ignored-directories
         '(".git" "node_modules" "dist" "build" "public" ))
 
+  ;; rainbow mode enable
+  (add-hook 'css-mode-hook 'rainbow-mode)
+  (add-hook 'html-mode-hook 'rainbow-mode)
+  (add-hook 'scss-mode-hook 'rainbow-mode)
+
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
 
   ;; disable jshint since we prefer eslint checking
   (setq-default flycheck-disabled-checkers
                 (append flycheck-disabled-checkers
                         '(javascript-jshint)))
-
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
-
-  ;; rainbow mode enable
-  (setq-default dotspacemacs-configuration-layers '(
-                (colors :variables colors-enable-rainbow-mode t)))
 
   (setq-default
    ;; js2-mode
