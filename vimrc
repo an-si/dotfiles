@@ -23,6 +23,7 @@ Plugin 'mhartington/oceanic-next'
 Plugin 'vim-airline/vim-airline'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'gcorne/vim-sass-lint'
 
 call vundle#end()            " required
 
@@ -91,8 +92,11 @@ set laststatus=2
 "syntastic
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_scss_sass_checkers = ['sass-lint']
+let g:syntastic_javascript_eslint_exec = '/usr/local/bin/eslint'
 let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_sass_lint_args = '--config /Users/ansi/src/mmx/src/.sass-lint.yaml'
+"let g:syntastic_sass_checkers=["sass_lint"]
+"let g:syntastic_scss_checkers=["sass_lint"]
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -105,6 +109,9 @@ let g:syntastic_style_warning_symbol = '💩'
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"ctrp
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/collected_static/*
 
 " disable arrowkeys
 map <left> <nop>
