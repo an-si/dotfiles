@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
@@ -20,10 +21,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mxw/vim-jsx'
 Plugin 'mhartington/oceanic-next'
+Plugin 'rakr/vim-one'
 Plugin 'vim-airline/vim-airline'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'gcorne/vim-sass-lint'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'moll/vim-node'
+Plugin 'dkprice/vim-easygrep'
 
 call vundle#end()            " required
 
@@ -47,12 +52,24 @@ set colorcolumn=100
 
 " visual
 syntax enable
-set t_Co=256
-set background=dark
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 "colorscheme solarized
-colorscheme OceanicNext
+"colorscheme OceanicNext
+colorscheme one
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  set t_ut=
+endif
+
+
 if has('gui_macvim')
-    set guifont=Inconsolata-dz\ for\ Powerline:h14
+    set guifont=Inconsolata-dz\ for\ Powerline:h16
 else
 	set guifont=Inconsolata\ 13
 endif
@@ -86,7 +103,8 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='oceanicnext'
+"let g:airline_theme='oceanicnext'
+let g:airline_theme='one'
 set laststatus=2
 
 "syntastic
@@ -94,6 +112,8 @@ let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_javascript_eslint_exec = '/usr/local/bin/eslint'
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_php_checkers = ['phpcs']
+let g:syntastic_php_phpcs_args = "--standard=PSR2"
 "let g:syntastic_sass_lint_args = '--config /Users/ansi/src/mmx/src/.sass-lint.yaml'
 "let g:syntastic_sass_checkers=["sass_lint"]
 "let g:syntastic_scss_checkers=["sass_lint"]
@@ -111,12 +131,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "ctrp
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/collected_static/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/collected_static/*,*/dist/*,*/public/*,*/node_modules/*
 
-" disable arrowkeys
-map <left> <nop>
-map <up> <nop>
-map <down> <nop>
-map <right> <nop>
+let mapleader = "\<Space>"
 
 set hidden
