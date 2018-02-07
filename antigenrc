@@ -1,52 +1,24 @@
-# Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
 antigen bundle command-not-found
 antigen bundle git
-antigen bundle git-flow
 antigen bundle django
-antigen bundle sublime
-antigen bundle brew
 antigen bundle pip
 antigen bundle python
 antigen bundle vi-mode
 antigen bundle node
-antigen bundle nvm
 antigen bundle yarn
-antigen bundle fabric
 antigen bundle z
-antigen bundle golang
+antigen bundle jump
 antigen bundle docker
+antigen bundle virtualenvwrapper
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-completions
 antigen bundle supercrabtree/k
 antigen bundle lukechilds/zsh-nvm
 antigen bundle lukechilds/zsh-better-npm-completion
-antigen bundle virtualenvwrapper
 
-# Load the theme.
 antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 antigen apply
-
-SPACESHIP_VI_MODE_SHOW=false
-SPACESHIP_PHP_SHOW=false
-SPACESHIP_PACKAGE_SHOW=false
-SPACESHIP_BATTERY_SHOW=false
-SPACESHIP_KUBECONTEXT_SHOW=false
-
-# bind UP and DOWN arrow keys
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
-# bind UP and DOWN arrow keys (compatibility fallback
-# for Ubuntu 12.04, Fedora 21, and MacOSX 10.9 users)
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-# bind k and j for VI mode
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
